@@ -2,72 +2,72 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+
+
+  runApp(MaterialApp(
+    //: 'Material App',
+    home: Home(),
+     
+  )
+  );
 }
 
-class MyApp extends StatelessWidget{
+class Home extends StatelessWidget {
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Dog App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Yelow lab'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              DecoratedBox(decoration: BoxDecoration(color: Colors.lightBlueAccent),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Rocky'),
-              ),
-              ),
-              DecoratedBox(
-                decoration: BoxDecoration(color: Colors.lightBlueAccent),
-                child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Sport'),
-                ),
-              ),
-              DecoratedBox(
-                decoration: BoxDecoration(color: Colors.lightGreenAccent),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Fido'),
-                ),
-                ),
-            ],
-          ),
-        ),
+  Widget build(context){
+    return Scaffold(
+      appBar: AppBar(
+       title: Text('My Frist App'),
+        centerTitle: true,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
+        },
+      ),
+      body: Column(
+        children: [
+          Text('hellow gfg '),
+          Text('New text'),
+          Text('New text'),
+        ],
+      )
+
     );
   }
 }
 
-/*
-class MyApp extends StatelessWidget{
+class SecondScreen extends StatelessWidget{
 
-  @override 
-  Widget build(BuildContext context){
+  @override
+  Widget build(context){
+    return Scaffold(
+      appBar: AppBar(
+       title: Text('My Secondd App'),
+        centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
 
-    return const MaterialApp(
-    home: Material(
-      child: Column(
-        
+        },
+      ),
+      body: Column(
         children: [
-           Text("Hellow, Welocom back!"),
-           Text('login to continue '),
-           Text('We will fight up class, seize the moments'),
-           
-         
+          Text('hellow gfg '),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
+          Text('New text'),
         ],
       )
-    )
-  );
-    
 
+    );
   }
 }
-*/
