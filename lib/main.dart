@@ -63,6 +63,7 @@ class Home extends StatelessWidget {
             ElevatedButton(onPressed: (){
               print('login with google cleck');
             }, child: Text('Login With Google')),
+                      Image.asset('asset/image/facebook.png'),
         ],
       )
 
