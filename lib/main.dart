@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,67 +8,104 @@ void main() {
 
   runApp(MaterialApp(
     //: 'Material App',
-    home: Home(),
-     
+    home: MyApp(),
   )
   );
 }
-
-class Home extends StatelessWidget {
-
-  @override
-  Widget build(context){
-    return Scaffold( 
-      backgroundColor: Colors.white,
-     drawer: Container(
-          width: 400,
-          height: 500,
-          color: Colors.white,
-      ), 
-      appBar: AppBar(
-       title: Text('My Frist App'),
-       backgroundColor: Colors.brown,
-        centerTitle: true,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          //Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
-        },
-        child: Text('Click'),
-        backgroundColor: Colors.black,
-        
-
-      ), 
-      body: Column(
-        
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Hello, Welcomback! '),
-          Text('Pleas, login to join or continuse'),
-          TextField(
-            decoration: InputDecoration(hintText: 'UserName'),
-          ),
-          TextField(
-            decoration: InputDecoration(hintText: 'Enter password'),
+class MyApp extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Login & Signup'),
+            backgroundColor: Colors.brown,
+            centerTitle: true,
+            bottom: TabBar(
+              tabs: [
+                Tab(text: 'Login'),
+                Tab(text: 'Signup'),
+              ],
             ),
-          TextButton(onPressed: (){
-              print('forgot pasword is Chlicked');
-              //Text('show data ');
-          }, child: Text('Forgot password')), 
-          ElevatedButton(
-            onPressed: (){
-              print('login si chekeds');
-            }, 
-            child: Text('Log in')),
-            Text('or login with '), 
+          ),
+          body: TabBarView(
+            children: [
+              LoginCard(),
+              SignupCard(),
 
-            ElevatedButton(onPressed: (){
-              print('login with google cleck');
-            }, child: Text('Login With Google')),
-                      Image.asset('asset/image/facebook.png'),
-        ],
-      )
+            ],
+          )
 
+        ),
+      ),
     );
   }
 }
+class LoginCard extends StatelessWidget{
+  @override
+  Widget build (BuildContext context){
+    return Center(
+      child: Card(
+        margin: EdgeInsets.all(20.0),
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(labelText: 'Email'),
+              ),
+              SizedBox(height: 10),
+              TextField(
+                decoration: InputDecoration(labelText: 'Password'),
+                obscureText: true,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(onPressed: (){
+    
+              }
+              , child: Text('Login'),
+              ),
+            ],
+          )
+        ),
+      ),
+    );
+  }
+}
+class SignupCard extends StatelessWidget{
+  @override 
+  Widget build (BuildContext context){
+      return Center(
+        child: Card(
+          margin: EdgeInsets.all(20.0),
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                TextField(
+                  decoration: InputDecoration(labelText: 'Full Name'),
+                ),
+                SizedBox(height: 10),
+                TextField(
+                  decoration: InputDecoration(labelText: 'Email'),
+                ),
+                SizedBox(height: 10),
+                TextField(
+                  decoration: InputDecoration(labelText: 'Password'),
+                ),
+                ElevatedButton(onPressed: 
+                (){}, child: Text('Signup'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+  }
+}
+
